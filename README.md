@@ -1,4 +1,4 @@
-#Getting Started
+## Getting Started
 
 This is the frontend code for my option scanner, which scans for unusual option activity on the NASDAQ and lists it on an easy to read datatable. You can take a look at the 
 [demo](https://60c9d2b8d2ad1e99ea799687--stoic-lumiere-6592fe.netlify.app/). Due to database costs, the page above is just a demo. This app utilizes react and a collection of libraries to accomplish this.
