@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+#Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend code for my option scanner, which scans for unusual option activity on the NASDAQ and lists it on an easy to read datatable. You can take a look at the 
+[demo](https://60c9d2b8d2ad1e99ea799687--stoic-lumiere-6592fe.netlify.app/). Due to database costs, the page above is just a demo. This app utilizes react and a collection of libraries to accomplish this.
 
-## Available Scripts
+## Building this yourself
+In order to build and deploy this application yourself, you will need a mongodb database, which can be populated easily using my script for [scraping option data](https://github.com/vxlm/TDA-Option-Scraper). You then need to set up an API which allows you to query the mongodb database, and point the application apiURI in app.js, line21
+to our endpoint which exposes the collection named *unusual*. After this is set up, you are done and can run this database and app on your local machine, in order to scrape much more data and important statistics.
 
-In the project directory, you can run:
+## Deploying this app on netlify for free
+To deploy the frontend to netlify is a rather easy task. First, make an account on [netlify](https://www.netlify.com/). Then, in terminal, inside of your react app,
+```
+npm run build
+npm install netlify-cli -g
+netlify deploy
+```
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+and you are done! The database and API hosting is more complicated, and will cost money for a decent size database. For a free version, mongodb provides atlas, which can store up to 512mb of storage.
