@@ -15,7 +15,7 @@ export const Option = props => {
   let { id } = useParams()
   const [specificOption, setSpecificOption] = useState({})
   const [isLoading,setIsLoading] = useState(false)
-  const optionURI = `http://localhost:8000/options/${id}`
+  const optionURI = `https://option-scanner-backend.herokuapp.com/options/${id}`
   useEffect(() => {
     getData()
   }, [])
