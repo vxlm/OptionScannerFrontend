@@ -1,11 +1,11 @@
 // import logo from './logo.svg'
 // import './App.css'
 import Option from './components/Option.js'
+import Dashboard from './components/Dashboard.js'
 import { useEffect, useState } from 'react'
 import Options from './components/Options.js'
 import axios from 'axios'
 import React from 'react'
-import Button from './components/Button.js'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -15,6 +15,8 @@ import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import { CircularProgress } from '@material-ui/core'
 import { Container } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper';
+import Box from "@material-ui/core/Box";
 
 function App () {
   //Dark theme const
@@ -63,13 +65,21 @@ function App () {
       <CssBaseline />
       <Router>
         <Route exact path='/'>
-          {options.length > 0 ? <Options options={options} /> : <Container fixed><CircularProgress /></Container>}
+          {options.length > 0 ? <Paper><Options options={options} /> </Paper>: <Box
+  display="flex"
+  justifyContent="center"
+  alignItems="center"
+  minHeight="100vh"
+>
+  <CircularProgress color='secondary' size='10rem' />
+</Box>}
         </Route>
         <Route exact path='/options/:id'>
-          <Option />
+          <Paper> <Option /></Paper>
+         
         </Route>
-        <Route exact path = '/chart'>
-          <Button/>
+        <Route exact path ='/dashboard/:id'>
+          <Dashboard/>
         </Route>
       </Router>
     </ThemeProvider>

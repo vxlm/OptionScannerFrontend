@@ -9,7 +9,7 @@ const columns = [
     headerName: 'symbol',
     width: 200,
     renderCell: params => (
-      <Link href={`/options/${params.value}`}>{params.value}</Link>
+      <Link href={`/dashboard/${params.value}`}>{params.value}</Link>
     )
   },
   {
