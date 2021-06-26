@@ -9,12 +9,11 @@ import React from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import { CircularProgress } from '@material-ui/core'
-import { Container } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
 import Box from "@material-ui/core/Box";
 

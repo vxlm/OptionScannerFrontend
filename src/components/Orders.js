@@ -9,9 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
-}
 
 
 function preventDefault(event) {
@@ -35,20 +32,30 @@ export  const Orders=(props)=> {
         <TableHead>
           <TableRow>
             <TableCell>Description</TableCell>
+            <TableCell>% Change</TableCell>
+            <TableCell>Volatility</TableCell>
+
             <TableCell>Total Volm</TableCell>
             <TableCell>Open Interest</TableCell>
             <TableCell>Volm/oi</TableCell>
-            <TableCell align="right">Last</TableCell>
+            <TableCell> Bid</TableCell>
+
+            <TableCell align="right">Ask</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.symbol}>
               <TableCell>{row.description}</TableCell>
+              <TableCell>{row.percentChange}</TableCell>
+              <TableCell>{row.volatility}</TableCell>
+
               <TableCell>{row.totalVolume}</TableCell>
               <TableCell>{row.openInterest}</TableCell>
               <TableCell>{row['volm/openInt']}</TableCell>
-              <TableCell align="right">{row.last}</TableCell>
+              <TableCell>{row.bid}</TableCell>
+
+              <TableCell align="right">{row.ask}</TableCell>
             </TableRow>
           ))}
         </TableBody>

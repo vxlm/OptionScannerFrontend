@@ -1,7 +1,5 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Title from './Title';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -14,14 +12,8 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-const useStyles = makeStyles({
-  depositContext: {
-    flex: 1,
-  },
-});
 
 export const Deposits=(props) =>{
-  const classes = useStyles();
   console.log(props)
   return (
     <React.Fragment>

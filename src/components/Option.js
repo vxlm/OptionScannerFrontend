@@ -2,14 +2,10 @@ import React from 'react'
 import axios from 'axios'
 import { Historical } from './Historical'
 import { useEffect, useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
 import Box from "@material-ui/core/Box";
 import { CircularProgress } from '@material-ui/core'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
+
   useParams
 } from 'react-router-dom'
 

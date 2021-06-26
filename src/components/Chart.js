@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer,Bar,ComposedChart } from 'recharts';
+import {  Line, XAxis, YAxis, Label, ResponsiveContainer,ComposedChart } from 'recharts';
 import Title from './Title';
 
 // Generate Sales Data
@@ -12,7 +12,6 @@ function createData(time, amount, last) {
 export const Chart=(props) =>{
   const theme = useTheme();
   let labels = []
-  let price = []
   let testQuery=props.data['0']['symbols'][0]['historical']
   testQuery.forEach(element =>{
     labels.push(createData([element['datetime']], element['volume'],element['last']))
