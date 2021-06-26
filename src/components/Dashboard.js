@@ -126,17 +126,45 @@ const useStyles = makeStyles((theme) => ({
 export  const Dashboard=() =>{
   let { id } = useParams()
   const [specificOption, setSpecificOption] = useState({})
+  const [similarOptions, setSimilarOptions] = useState({})
   const [isLoading,setIsLoading] = useState(false)
+  const [isSummaryLoading,setIsSummaryLoading] = useState(false)
+  const [summary,setSummary] = useState({})
   const optionURI = `https://option-scanner-backend.herokuapp.com/options/${id}`
+  const similarOptionUri= `https://option-scanner-backend.herokuapp.com/similaroptions/${id}`
+  const summaryUri = `https://option-scanner-backend.herokuapp.com/summary/${id}`
   useEffect(() => {
     getData()
+    getSimilarData()
+    getSummaryData()
   }, [])
   
   async function getData () {
     await axios(optionURI)
       .then(response => {
         setSpecificOption(response.data)
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error)
+      })
+      .finally(() => {})
+  }
+  async function getSimilarData () {
+    await axios(similarOptionUri)
+      .then(response => {
+        setSimilarOptions(response.data)
         setIsLoading(true)
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error)
+      })
+      .finally(() => {})
+  }
+  async function getSummaryData () {
+    await axios(summaryUri)
+      .then(response => {
+        setSummary(response.data)
+        setIsSummaryLoading(true)
       })
       .catch(error => {
         console.error('Error fetching data: ', error)
@@ -197,24 +225,25 @@ export  const Dashboard=() =>{
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={8} lg={7}>
               <Paper className={fixedHeightPaper}>
               {specificOption.keys ? <Chart data={specificOption} /> : <h1>Loading</h1>}
                 
               </Paper>
             </Grid>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} md={4} lg={5}>
               <Paper className={fixedHeightPaper}>
-              {specificOption.keys ? <Deposits data={specificOption} /> : <h1>Loading</h1>}
+              {isSummaryLoading ? <Deposits data={summary} /> : <h1>Loading</h1>}
 
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {/* <Orders /> */}
-                WORK IN PROGRESS
+              {isLoading ?  <Orders rows={similarOptions}/> : <h1>No Data</h1>}
+              
+        
               </Paper>
             </Grid>
           </Grid>
