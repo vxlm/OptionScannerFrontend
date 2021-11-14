@@ -1,7 +1,7 @@
 ## Getting Started
 
 This is the frontend code for my option scanner, which scans for unusual option activity on the NASDAQ and lists it on an easy to read datatable. You can take a look at the 
-[demo](https://60c9d2b8d2ad1e99ea799687--stoic-lumiere-6592fe.netlify.app/). Due to database costs, the page above is just a demo. This app utilizes react and a collection of libraries to accomplish this.
+[demo](https://stoic-lumiere-6592fe.netlify.app/). Due to database costs, the page above is just a demo. This app utilizes react and a collection of libraries to accomplish this.
 
 ## Building this yourself
 In order to build and deploy this application yourself, you will need a mongodb database, which can be populated easily using my script for [scraping option data](https://github.com/vxlm/TDA-Option-Scraper). You then need to set up an API which allows you to query the mongodb database, and point the application apiURI in app.js, line21
